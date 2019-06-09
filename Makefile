@@ -4,12 +4,11 @@ install_blender:
 	sudo pacman -S blender
 
 install_ere:
-	git clone
-	cd earth-reverse-engineering
-	npm install
+	git clone https://github.com/retroplasma/earth-reverse-engineering
+	cd earth-reverse-engineering && git pull
+	cd earth-reverse-engineering && npm install
 
 install: install_blender install_ere
-
 
 all:
 	cd earth-reverse-engineering && \
@@ -22,7 +21,6 @@ all:
 	@echo "center_scale_obj.js takes care of that and produces model.2.obj from model.obj."
 	cd earth-reverse-engineering && \
 	node center_scale_obj.js
-
 
 
 test:
