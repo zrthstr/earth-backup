@@ -44,10 +44,21 @@ test:
 	node dump_obj.js 30604342534243434  20
 
 
-more:
+more: info
 	cd earth-reverse-engineering && \
 	time node dump_obj.js 3060434253424343  20
 
+more0: info
+	cd earth-reverse-engineering && \
+	time node dump_obj.js 306043425342434  20
+
+more1: info
+	cd earth-reverse-engineering && \
+	time node dump_obj.js 30604342534243  20
+
+more2: info
+	cd earth-reverse-engineering && \
+	time node dump_obj.js 3060434253424  20
 
 info:
 	du -sh objs/*
