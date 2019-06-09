@@ -1,4 +1,6 @@
 
+
+
 install_blender:
 	@echo ">> File:User Preference:Input> Emulate 3 button mouse | Emulate Numpad"
 	sudo pacman -S blender
@@ -6,6 +8,7 @@ install_blender:
 install_ere:
 	git clone https://github.com/retroplasma/earth-reverse-engineering
 	cd earth-reverse-engineering && git pull
+	sudo pacman -S npm
 	cd earth-reverse-engineering && npm install
 
 install: install_blender install_ere
@@ -24,6 +27,27 @@ all:
 
 
 test:
+	# https://plus.codes/9F4MFCX9+M5
+
 	cd earth-reverse-engineering && \
-	node lat_long_to_octant.js 37.420806884765625 -122.08419799804688
-	
+	node lat_long_to_octant.js 52.499187 13.417938
+
+	# => Octant Level: 18
+	# { n: 52.499542236328125,
+	# s: 52.4981689453125,
+	# w: 13.41705322265625,
+	# e: 13.4197998046875 }
+	# 306043425342434341
+	# 306043425342434345
+
+	cd earth-reverse-engineering && \
+	node dump_obj.js 30604342534243434  20
+
+
+more:
+	cd earth-reverse-engineering && \
+	time node dump_obj.js 3060434253424343  20
+
+
+info:
+	du -sh objs/*
