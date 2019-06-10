@@ -6,9 +6,13 @@ install_blender:
 	sudo pacman -S blender
 
 install_ere:
+	sudo pacman -S npm vim curl tmux wget htop zsh grml-zsh-config rsync
+	git config --global user.email "you@example.com"
+	git config --global user.name "Your Name"	
+
 	git clone https://github.com/retroplasma/earth-reverse-engineering
+	mkdir -p earth-reverse-engineering/downloaded_files/objs	
 	cd earth-reverse-engineering && git pull
-	sudo pacman -S npm
 	cd earth-reverse-engineering && npm install
 
 install: install_blender install_ere
@@ -44,21 +48,21 @@ test:
 	node dump_obj.js 30604342534243434  20
 
 
-more: info
+more:
 	cd earth-reverse-engineering && \
-	time node dump_obj.js 3060434253424343  20
+	time node dump_obj.js 3060434253424343 20
 
-more0: info
+more0:
 	cd earth-reverse-engineering && \
-	time node dump_obj.js 306043425342434  20
+	time node dump_obj.js 306043425342434 20
 
-more1: info
+more1:
 	cd earth-reverse-engineering && \
-	time node dump_obj.js 30604342534243  20
+	time node dump_obj.js 30604342534243 20 --parallel-search
 
-more2: info
+more2:
 	cd earth-reverse-engineering && \
-	time node dump_obj.js 3060434253424  20
+	time node dump_obj.js 3060434253424 20 --parallel-search
 
 info:
 	du -sh objs/*
