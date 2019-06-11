@@ -64,5 +64,9 @@ more2:
 	cd earth-reverse-engineering && \
 	time node dump_obj.js 3060434253424 20 --parallel-search
 
+more3:
+	cd earth-reverse-engineering && \
+	time node dump_obj.js 306043425342 20 --parallel-search
+	
 info:
 	du -sh objs/*
